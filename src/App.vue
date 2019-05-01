@@ -23,7 +23,17 @@ import HelloWorld from "./components/HelloWorld";
 import newspot from "./components/newspot";
 import firebase from 'firebase'
 
- var storage = firebase.storage();
+  var config = {
+    apiKey: "AIzaSyDqe-35kl9BwmbTrwISfwA5EUdUcUtl18E",
+    authDomain: "goeswatini.firebaseapp.com",
+    databaseURL: "https://goeswatini.firebaseio.com",
+    projectId: "goeswatini",
+    storageBucket: "goeswatini.appspot.com",
+    messagingSenderId: "817655537607"
+  };
+  
+  firebase.initializeApp(config);
+  var storage = firebase.storage();
 
 export default {
   name: "App",

@@ -3,10 +3,14 @@
         <v-dialog
                 v-model="show_dialog"
                 max-width="500px"
+                fullscreen
         >
         <v-card tile>
             <v-toolbar card dark prominent color="primary">
-                <v-toolbar-title>Create A new Queue</v-toolbar-title>
+                  <v-btn icon dark @click="show_dialog = false">
+            <v-icon>close</v-icon>
+          </v-btn>
+                <v-toolbar-title>Create A new Place Of Interest</v-toolbar-title>
                 <v-spacer></v-spacer>
                 <v-toolbar-items>
                     <v-btn dark flat @click.native="save_queue">Save</v-btn>
@@ -15,7 +19,9 @@
                 </v-menu>
             </v-toolbar>
             <v-card-text>
-                <uform :fields="general_form.fields" :title="general_form.title" :value="general_form.data" v-model="general_form.data"></uform>
+                <uform :fields="general_form.fields" :title="general_form.title" :value="general_form.data" v-model="general_form.data">
+                </uform>
+                <slot></slot>
             </v-card-text>
         </v-card>
 
@@ -42,7 +48,8 @@
                     data:{},
                     fields:
                         [
-                            {label: "Queue Name", v_model: 'name', type: 'text', id: 0}
+                            {label: "Spot Name", v_model: 'name', type: 'text', id: 0},
+                            {label: "Spot Name", v_model: 'type', type: 'select', items:['Restuarant','police station','Hotel','Museum','Polie Station'],id: 0}
                         ]
                 }
             }
